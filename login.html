@@ -71,11 +71,11 @@
         console.log('Family Name: ' + profile.getFamilyName());
         console.log("Image URL: " + profile.getImageUrl());
         console.log("Email: " + profile.getEmail());
-        // var idProfile=profile.getId();
+        var idProfile=profile.getId().substring(0,10);
          var nameProfile=profile.getName();
          var imgProfile=profile.getImageUrl();
         // var email=profile.getImage();
-         var hinhanh='<a href="#" onclick="dangnhap()"><img id="imgprofile" src="'+imgProfile+'"/></a>';
+         var hinhanh='<a href="interface_mxh.php?iduser='+idProfile+'" onclick="dangnhap()"><img id="imgprofile" src="'+imgProfile+'"/></a>';
          var ten='<a href="#" onclick="an()" id="nameuser">'+nameProfile+'</a><br>'
          var signout = '<button onclick="signOut()" id="signout" class="btn btn-danger">Out</button>';
          $("#info").append(hinhanh);
@@ -127,8 +127,7 @@ $("#info").css("display","none");
 </script>
 <div id="me">
     <div id="signin"class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <div id="info">
-</div>
+    <div id="info"></div>
 </div>
 </body>
 </html>

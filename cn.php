@@ -1,5 +1,7 @@
 <?php
 $link = new mysqli("localhost", "root", "", "mxh_karaoke",3306);
+//$link = new mysqli("103.163.118.236", "huytv", "Huytv0123456789", "mxh_karaoke",3306);
+
 //$link= mysqli_connect("localhost","root" ,"","mxh_karaoke");
 if($link){
 

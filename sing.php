@@ -1,7 +1,6 @@
 <?php
 require 'cn.php';
 include 'index.php';
-
 $me=$_COOKIE['id'];
 if(isset($_COOKIE['userwatch'])){
     unset($_COOKIE['userwatch']);
