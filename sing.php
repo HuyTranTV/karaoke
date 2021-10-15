@@ -1,7 +1,10 @@
 <?php
 require 'cn.php';
+$me="0";
+if(isset($_COOKIE['id'])){
+    $me=$_COOKIE['id'];
+}
 
-$me=$_COOKIE['id'];
 if(isset($_COOKIE['userwatch'])){
     unset($_COOKIE['userwatch']);
     setcookie('userwatch', null, -1, '/');
