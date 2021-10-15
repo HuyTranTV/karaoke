@@ -1,6 +1,6 @@
 <?php
 require 'cn.php';
-include 'index.php';
+
 $me=$_COOKIE['id'];
 if(isset($_COOKIE['userwatch'])){
     unset($_COOKIE['userwatch']);
@@ -136,7 +136,7 @@ function get_rep_cmt($idcmt,$tenuser){
 
 
 }
-
+include 'index.php';
 ?>
 <!DOCTYPE html>
 <div lang="en">
