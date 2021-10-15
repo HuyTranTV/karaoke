@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.js"></script>
+
+    <script>
+        // let mic,reconder,soundFile;
+        // function preload() {
+        //     song = loadSound('yeumotnguoikara.mp3');
+        // }
+        //
+        // function setup(){
+        //
+        //     let cnv = createCanvas(100, 100);
+        //     cnv.mousePressed(userStartAudio);
+        //     textAlign(CENTER);
+        //     mic = new p5.AudioIn();
+        //     mic.start();
+        //
+        //     document.getElementById("stop").onclick = function(){
+        //         mic.disconnect();
+        //     }
+        //     document.getElementById("start").onclick = function(){
+        //         mic.connect();
+        //     }
+        //     document.getElementById("record").onclick = function(){
+        //         // if(mic.enabled){
+        //             reconder=new p5.SoundRecorder();
+        //             // song.play();
+        //             reconder.setInput();
+        //             // reconder.setInput(mic);
+        //             soundFile=new p5.SoundFile();
+        //             reconder.record(soundFile);
+        //         // }
+        //
+        //     }
+        //
+        //
+        //     document.getElementById("stoprecord").onclick = function(){
+        //         reconder.stop();
+        //         song.stop();
+        //     }
+        //     document.getElementById("playrecord").onclick = function(){
+        //         // soundFile.play();
+        //
+        //
+        //
+        //         // soundFile.connect(nhac);
+        //         soundFile.play();
+        //     }
+        //     document.getElementById("saverecord").onclick = function(){
+        //
+        //         saveSound(soundFile,"sound.wav");
+        //     }
+        //
+        // }
+        // function draw(){
+        //     background(0);
+        //     fill(255);
+        //     text('tap to start', width/2, 20);
+        //     micLevel = mic.getLevel();
+        //     let y = height - micLevel * height;
+        //     ellipse(width/2, y, 10, 10);
+        // }
+        document.querySelector('#start').onclick = function() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
+                navigator.mediaDevices.getDisplayMedia({
+                    video: true,
+                    audio: false
+                }).then((stream) => {
+                    allStream = stream;
+                    document.querySelector('#player').srcObject = stream;
+                }).catch((err) => {
+                    console.error(err);
+                })
+            } else {
+                alert('Error');
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+<!--<button id="start">Hát</button>-->
+<!--<button id="stop">Dừng</button>-->
+<!--<button id="record">Reconrd</button>-->
+<!--<button id="stoprecord">Stop record</button>-->
+<!--<button id="playrecord">listen record</button>-->
+<!--<button id="saverecord">save record</button>-->
+<hr>
+<button id="start">Start</button>
+<button id="record">Record</button>
+<button id="stop">Stop</button>
+<button id="download">Download</button>
+<video autoplay playsinline id="player"></video>
+<audio controls>
+    <source src="yeumotnguoikara.mp3" type="audio/mpeg">
+
+    Trình duyệt không hỗ trợ phát âm thanh
+</audio>
+</body>
+</html>
