@@ -523,11 +523,7 @@ ob_end_flush();
 
             /*}*/
 
-            #cmt-dexuat{
-                display: flex;
-                flex-direction: column;
-                display: none;
-            }
+
 
         }
         @keyframes hiencontent-page{
@@ -568,7 +564,10 @@ ob_end_flush();
 
               }
         }
-
+        .container-flex{
+            display: flex;
+            flex-direction: column;
+        }
         #player{
             float: left;
             width: 100%;
@@ -679,6 +678,8 @@ ob_end_flush();
 
         }
         #watch{
+            display: flex;
+            flex-direction: column;
 
         }
         #stoprecord{
@@ -795,6 +796,7 @@ ob_end_flush();
         #cmt-dexuat{
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
     </style>
@@ -808,39 +810,39 @@ ob_end_flush();
     <div class="container-flex" >
         <div id="control">
             <a href="#" id="hienlist-control" onclick="hienlist_control();"><span class="material-icons">
-mic_none
-</span>
+                                                                                mic_none
+                                                                                </span>
             </a>
 
             <ul id="list-play">
                 <li style="background: bisque"><a href="#" id="start"><span class="material-icons">
-hearing
-</span>
+                                                                hearing
+                                                                </span>
                     </a></li>
                 <li style="background: cornflowerblue"><a href="#" id="stop"><span class="material-icons">
-hearing_disabled
-</span>
+                                                            hearing_disabled
+                                                            </span>
                     </a></li>
                 <li style="background: lightcyan;color: red"><a href="#" id="record"><span style="color: red" class="material-icons">
-radio_button_checked
-</span>
+                                                                                        radio_button_checked
+                                                                                        </span>
                     </a></li>
                 <li style="background: tomato"><a href="#" id="stoprecord"><span class="material-icons">
-stop
-</span>
+                                                                stop
+                                                                </span>
                     </a></li>
                 <li  id="boxspeed" style="display: none;color: white"><input type="number" id="speed"  max="2" value="1" min="0.25" step="0.25">X <span style="color: white" class="material-icons">
-speed
-</span>
+                                                                                                                        speed
+                                                                                                                        </span>
                 </li>
 
                 <li style="background: black"><a style="color: aliceblue" href="#" id="playrecord"><span class="material-icons">
-play_circle_filled
-</span>
+                                                                        play_circle_filled
+                                                                        </span>
                     </a></li>
                 <li style="background: lightgreen"><a href="#" id="saverecord"><span class="material-icons">
-save
-</span>
+                                                                save
+                                                                </span>
                     </a></li>
 
                 <li id="tenbaihat"><h1><?php ob_start(); echo"$name"; ob_end_flush();?></h1></li>
@@ -848,11 +850,10 @@ save
 
 
         </div>
-      <div id="watch">
-          <div id="player"></div>
-          <main></main>
-      </div>
-        <hr>
+        <div id="watch">
+           <div id="player"></div>
+           <main></main>
+        </div>
         <div id="cmt-dexuat" >
             <div id="comment">
                 <!--            <div id="choose">-->
@@ -869,7 +870,6 @@ save
                    </b>
                </div>
 
-                <hr>
                 <div id="choose-dexuat">
                     <?php
                     ob_start();
@@ -898,8 +898,6 @@ save
 
                 </div>
             </div>
-            <br>
-
             <div id="choose-cmt" >
                 <div style="text-align: center; width: 100%; background-color: lightskyblue; padding: 10px">
                     <b>
@@ -914,8 +912,8 @@ save
                     <input type="text" id="comment-box" class="form-control rounded" placeholder="Comment stay here" aria-label="Search"
                            aria-describedby="search-addon" />
                     <button type="button" id="tim1" class="btn btn-outline-primary" onclick="<?php ob_start(); echo"mecomment('$mecmtvideo')"; ob_end_flush();?>" ><span style="color: blue" class="material-icons">
-send
-</span>
+                                                                                    send
+                                                                                    </span>
                     </button>
 
                 </div>
@@ -928,12 +926,8 @@ send
 
 
             </div>
-
         </div>
-
-
     </div>
-
 </body>
 
 </div>
