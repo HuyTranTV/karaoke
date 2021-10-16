@@ -803,7 +803,7 @@ ob_end_flush();
 
 </head>
 
-<?php $id=$_GET['id']?>
+<?php ob_start(); $id=$_GET['id']; ob_end_flush()?>
 <body id="content-page">
     <div class="container-flex" >
         <div id="control">
@@ -843,7 +843,7 @@ save
 </span>
                     </a></li>
 
-                <li id="tenbaihat"><h1><?php echo"$name"?></h1></li>
+                <li id="tenbaihat"><h1><?php ob_start(); echo"$name"; ob_end_flush();?></h1></li>
             </ul>
 
 
@@ -872,6 +872,7 @@ save
                 <hr>
                 <div id="choose-dexuat">
                     <?php
+                    ob_start();
                     $sql99 = "SELECT * FROM video as a , user_xem_video as b 
                     where a.ID_VIDEO=b.ID_VIDEO and b.ID_USER='$me' and a.ID_VIDEO<>'$idvideo'
                     ORDER BY HOT ASC";
@@ -892,7 +893,7 @@ save
                     }else{
 
                     }
-
+                    ob_end_flush();
                     ?>
 
                 </div>
@@ -919,7 +920,9 @@ send
 
                 </div>
                 <?php
+                ob_start();
                 get_cmt($idvideo);
+                ob_end_flush();
                 ?>
                 <hr>
 
