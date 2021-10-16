@@ -913,7 +913,7 @@ save
                 <div style="display: flex;flex-direction: row">
                     <input type="text" id="comment-box" class="form-control rounded" placeholder="Comment stay here" aria-label="Search"
                            aria-describedby="search-addon" />
-                    <button type="button" id="tim1" class="btn btn-outline-primary" onclick="<?php echo"mecomment('$mecmtvideo')"; ?>" ><span style="color: blue" class="material-icons">
+                    <button type="button" id="tim1" class="btn btn-outline-primary" onclick="<?php ob_start(); echo"mecomment('$mecmtvideo')"; ob_end_flush();?>" ><span style="color: blue" class="material-icons">
 send
 </span>
                     </button>
