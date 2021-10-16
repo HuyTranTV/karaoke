@@ -795,7 +795,8 @@ ob_end_flush();
             width: 100%;
         }
         #favo-song{
-            text-align: center; width: 100%; background-color: lightcoral; padding: 10px
+            text-align: center; width: 100%; background-color: lightcoral; padding: 10px;
+            color: white;
         }
         ::-webkit-scrollbar{
             width: 10px;
