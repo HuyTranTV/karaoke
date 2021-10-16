@@ -89,7 +89,9 @@ else{
 <html lang="en" name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <meta charset="UTF-8">
-    <title>Trang chu</title>
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module">
 
@@ -286,7 +288,9 @@ else{
                             var title=snapshot1.val().title;
                             var delete_video="";
                             if(getmyid()==getid()){
-                                delete_video="<a class=\"icon_del_video\" href=\"#\" onclick=\"return del_video('"+key+"','"+urlvideo+"');\">X</a>";
+                                delete_video="<a class=\"icon_del_video\" href=\"#\" onclick=\"return del_video('"+key+"','"+urlvideo+"');\"><span class=\"material-icons\">\n" +
+                                    "highlight_off\n" +
+                                    "</span>\n</a>";
                             }else{
 
                             }
@@ -327,6 +331,9 @@ else{
         }
         showvideo();
         function get_more_video() {
+            document.getElementById("center").style.width="80%";
+            document.getElementById("right").style.display="block";
+
             var id=getid();
             var path='users/' + id + '/video/';
             const dbRef = ref(getDatabase());
@@ -356,7 +363,9 @@ else{
                             "        </div>\n" +
                             "        <hr>\n" +
                             "   "
-                        var hd="<div style='border: 1px solid blue; border-radius: 20px;width: 100%;height: 40px;text-align: center';><img src='img/icon_listvideo.png' width='35' height='40'></div>";
+                        var hd="<a onclick='exit_libvideo()' style='border: 1px solid blue; border-radius: 20px;width: 100%;height: 40px;text-align: center';><span class=\"material-icons\">\n" +
+                            "video_library\n" +
+                            "</span>Close</a>";
                         document.getElementById('right').innerHTML=hd+str;
                     }).catch((error) => {
                         console.error(error);
@@ -373,6 +382,12 @@ else{
             });
 
         }
+        function exit_libvideo() {
+            document.getElementById("right").style.display="none";
+            document.getElementById("center").style.width="80%";
+
+        }
+        window.exit_libvideo=exit_libvideo;
         function get_value_length() {
             var titile = document.getElementById("titile-video").value;
             var length=titile.length;
@@ -1125,7 +1140,7 @@ else{
                                                 "\n" +
                                                 "                <div class=\"like-cmt\">\n" +
                                                 "                    <a href=\"#\" class=\"like-start\"><img src=\"img/icon-bf-like.png\" width=\"30\" height=\"30\"style=\"border-radius: 60px; margin: 2px\"></a>\n" +
-                                                "                    <a href=" + "#" + key + " onclick=\"return display_cmt('" + id + "','" + key + "')\"   class=\"cmt-start\" ><img src=\"img/icon-cmt.png\" width=\"60\" height=\"30\"style=\"border-radius: 60px; margin: 2px\">\n" +
+                                                "                    <a href=" + "#" + key + " onclick=\"return display_cmt('" + id + "','" + key + "')\"   class=\"cmt-start\" ><img src=\"img/icon-cmt.png\" width=\"60\" height=\"30\"style=\"border-radius: 60px; margin: 2px\"></a>\n" +
                                                 "                </div><div id=" + key + " class=\"user-cmt-box\"></div></div>";
                                             document.getElementById("tree").innerHTML = status;
 
@@ -1296,9 +1311,9 @@ else{
 
         /*--------------------------------------------------------------------------------Center---*/
         #center{
-            width: 60%;
+            width: 80%;
             min-height: 1000px;
-            margin-right: 5%;
+            margin-right: 2%;
 
         }
             #top-in-center{
@@ -1681,6 +1696,7 @@ else{
             width: 15%;
             height: 800px;
             overflow-y: scroll;
+            display: none;
 
 
         }
@@ -1794,7 +1810,9 @@ else{
                 <div class="infor-time" id="info-time-me">
                     <div class="user-avarta">
                         <a href="#"><img src="<?php echo "$img";?>"></a>
-                        <a href="#" style="margin-left: 9%"><img src="img/iconadd.jpg" onclick="show_input_video();" style="height: 30px; width: 40px"></a>
+                        <a href="#" style="margin-left: 9%" onclick="show_input_video();"><span class="material-icons">
+                                                                                control_point
+                                                                                </span></a>
                     </div>
                     <div class="user-name" id="input-video-box">
 

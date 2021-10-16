@@ -147,8 +147,9 @@ ob_end_flush();
 <div lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-
+    <title>Karaoke</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -241,7 +242,7 @@ ob_end_flush();
         let mic,reconder,soundFile,fft;
         function setup(){
 
-              let cnv = createCanvas(985,65);
+              let cnv = createCanvas(300,65);
             // cnv.mousePressed(userStartAudio);
             // textAlign(CENTER);
             mic = new p5.AudioIn();
@@ -508,16 +509,25 @@ ob_end_flush();
         /*}*/
 
         @media only screen and (max-width: 768px){
-            #watch{
-                display: flex;
-                flex-direction: column;
-            }
+            /*#watch{*/
+            /*    display: flex;*/
+            /*    flex-direction: column;*/
+            /*}*/
             /*#ssIFrame_google{*/
             /*    width: 400px;*/
             /*}*/
             /*#comment{*/
-            /*    width: 300px;*/
+            /*    width: 100%;*/
+            /*    margin: 0%;*/
+
+
             /*}*/
+
+            #cmt-dexuat{
+                display: flex;
+                flex-direction: column;
+                display: none;
+            }
 
         }
         @keyframes hiencontent-page{
@@ -561,8 +571,8 @@ ob_end_flush();
 
         #player{
             float: left;
-            width: 73%;
-            margin-right: 1%;
+            width: 100%;
+
             position: relative;
             clear: left;
         }
@@ -573,6 +583,7 @@ ob_end_flush();
 
 
         }
+
         #list-play #tenbaihat h1{
             font-size: 20px;
             font-style: italic;
@@ -602,11 +613,10 @@ ob_end_flush();
         }
         #comment{
 
-            width: 25%;
-            float: left;
+
             height: 500px;
             overflow-y: auto;
-
+            text-align: left;
             margin-right: 1%;
         }
         #choose{
@@ -617,10 +627,8 @@ ob_end_flush();
             flex-direction: row;
         }
         #cmt{
-            float: left;
-            width: 50%;
-            text-align: center;
 
+            width: 50%;
             text-decoration: none;
             color: aliceblue;
             height: 40px;
@@ -639,16 +647,12 @@ ob_end_flush();
         }
 
         #choose-cmt{
-            float: left;
             width: 100%;
-            display: none;
             padding: 5px;
             border-radius: 10px;
-
             background-color:snow;
         }
         #choose-dexuat{
-            float: left;
             display: flex;
             flex-direction: column;
         }
@@ -663,7 +667,7 @@ ob_end_flush();
             margin-left: 10%;
         }
         #comment-box{
-            width: 80%;
+            width: 70%;
             float: left;
         }
 
@@ -683,8 +687,14 @@ ob_end_flush();
             display: none;
         }
         .dem{
-            margin-top: 20px;
-            position: relative;
+            margin-top: 10px;
+           padding: 0px;
+            display: flex;
+            flex-direction: row;
+
+            width: 100%;
+
+
 
         }
 
@@ -712,11 +722,12 @@ ob_end_flush();
             font-style: italic;
             opacity: 0.4;
             text-decoration: none;
+            width: 75%;
         }
         .songname:hover{
             text-decoration: none;
-            opacity: 1;
-            font-size: 15px;
+            opacity: 2;
+            font-size: 14px;
 
 
         }
@@ -745,6 +756,7 @@ ob_end_flush();
         }
         #tim1{
             margin-left: 2px;
+            width: 30%;
 
         }
         .rep-cmt{
@@ -755,19 +767,33 @@ ob_end_flush();
             color: gainsboro;
 
         }
-        .dem{
-            display: flex;
-            flex-direction: column;
+
+        .imgvideo {
+            width: 25%;
+            background-color: red;
+
 
         }
-        #imgvideo img{
-            width: 100%;
+        .imgvideo img{
+              width: 100%;
+            image-rendering: pixelated;
+            object-fit: contain;
 
-        }
+
+          }
+
         ::-webkit-scrollbar{
             width: 10px;
             background: silver;
 
+        }
+        main{
+            text-align: center;
+            background-color: black;
+        }
+        #cmt-dexuat{
+            display: flex;
+            flex-direction: column;
         }
 
     </style>
@@ -777,81 +803,108 @@ ob_end_flush();
 </head>
 
 <?php $id=$_GET['id']?>
-    <body id="content-page">
-<div class="container-flex" >
-  <div id="watch">
-      <div id="control">
-         <a href="#" id="hienlist-control" onclick="hienlist_control();"><img src="img/1687761.png" width="20" height="20"></a>
+<body id="content-page">
+    <div class="container-flex" >
+      <div id="watch">
+          <div id="control">
+             <a href="#" id="hienlist-control" onclick="hienlist_control();"><img src="img/1687761.png" width="20" height="20"></a>
 
-         <ul id="list-play">
-             <li style="background: bisque"><a href="#" id="start">Hát</a></li>
-             <li style="background: cornflowerblue"><a href="#" id="stop">Dừng</a></li>
-             <li style="background: burlywood"><a href="#" id="record">Reconrd</a></li>
-             <li style="background: tomato"><a href="#" id="stoprecord">Stop record</a></li>
-             <li id="boxspeed" style="display: none;"><input type="number" id="speed"  max="2" value="1" min="0.25" step="0.25">X Speed</li>
+             <ul id="list-play">
+                 <li style="background: bisque"><a href="#" id="start">Hát</a></li>
+                 <li style="background: cornflowerblue"><a href="#" id="stop">Dừng</a></li>
+                 <li style="background: burlywood"><a href="#" id="record">Reconrd</a></li>
+                 <li style="background: tomato"><a href="#" id="stoprecord">Stop record</a></li>
+                 <li id="boxspeed" style="display: none;"><input type="number" id="speed"  max="2" value="1" min="0.25" step="0.25">X Speed</li>
 
-             <li style="background: black"><a style="color: aliceblue" href="#" id="playrecord">listen record</a></li>
-             <li style="background: lightgreen"><a href="#" id="saverecord">save record</a></li>
+                 <li style="background: black"><a style="color: aliceblue" href="#" id="playrecord">listen record</a></li>
+                 <li style="background: lightgreen"><a href="#" id="saverecord">save record</a></li>
 
-             <li id="tenbaihat"><h1><?php echo"$name"?></h1></li>
-         </ul>
+                 <li id="tenbaihat"><h1><?php echo"$name"?></h1></li>
+             </ul>
 
 
-     </div>
-      <div id="player">
-        </div>
-      <div id="comment">
-            <div id="choose">
-                <a id="cmt" href="#" onclick="showcmt();"><img src="img/icon-comment.png" width=50" height="35" style="border-radius: 20px"></a>
-                <a id="dexuat" href="#" onclick="showdexuat();"><img src="img/icon-youtube.png" width=60" height="35" style="border-radius: 20px"></a>
+         </div>
+          <div id="player"></div>
+          <main></main>
+      </div>
+        <hr>
+        <div id="cmt-dexuat" >
+            <div id="comment">
+                <!--            <div id="choose">-->
+                <!--                <a id="cmt" href="#" onclick="showcmt();"><img src="img/icon-comment.png" width=50" height="35" style="border-radius: 20px"></a>-->
+                <!--                <a id="dexuat" href="#" onclick="showdexuat();"><img src="img/icon-youtube.png" width=60" height="35" style="border-radius: 20px"></a>-->
+                <!--            </div>-->
+               <div style="text-align: center; width: 100%; background-color: lightcoral; padding: 10px">
+                   <b>
+                   <span class="material-icons">
+                    try
+                    </span>
+
+                       Bài hát yêu thích
+                   </b>
+               </div>
+
+                <hr>
+                <div id="choose-dexuat">
+                    <?php
+                    $sql99 = "SELECT * FROM video as a , user_xem_video as b 
+                    where a.ID_VIDEO=b.ID_VIDEO and b.ID_USER='$me' and a.ID_VIDEO<>'$idvideo'
+                    ORDER BY HOT ASC";
+                    if($result99=mysqli_query($link,$sql99)){
+                        if(mysqli_num_rows($result99)>0){
+                            while ($rows99=mysqli_fetch_assoc($result99)){
+                                $hinhanh_dexuat=$rows99['HINHANH_VIDEO'];
+                                $idvideo_dexuat=$rows99['ID_VIDEO'];
+                                $tenvideo_dexuat=$rows99['NAME_VIDEO'];
+                                echo "<div class='dem'>
+                              
+                                <a class='imgvideo'  href='sing.php?id=$idvideo_dexuat&&name=$tenvideo_dexuat&&img=$hinhanh_dexuat'><img  src='$hinhanh_dexuat'></a>
+                                <a class='songname' href='sing.php?id=$idvideo_dexuat&&name=$tenvideo_dexuat&&img=$hinhanh_dexuat'>$tenvideo_dexuat</a>
+                              
+                                </div>";
+                            }
+                        }
+                    }else{
+
+                    }
+
+                    ?>
+
+                </div>
             </div>
+            <br>
+
             <div id="choose-cmt" >
+                <div style="text-align: center; width: 100%; background-color: lightskyblue; padding: 10px">
+                    <b>
+                          <span class="material-icons">
+                            comment
+                          </span>
+                        Comment
+                    </b>
+                </div>
+
+                <div style="display: flex;flex-direction: row">
+                    <input type="text" id="comment-box" class="form-control rounded" placeholder="Comment stay here" aria-label="Search"
+                           aria-describedby="search-addon" />
+                    <button type="button" id="tim1" class="btn btn-outline-primary" onclick="<?php echo"mecomment('$mecmtvideo')"; ?>" >Gửi</button>
+
+                </div>
                 <?php
                 get_cmt($idvideo);
                 ?>
                 <hr>
 
-            <div>
-                <input type="text" id="comment-box" class="form-control rounded" placeholder="Comment stay here" aria-label="Search"
-                       aria-describedby="search-addon" />
-                <button type="button" id="tim1" class="btn btn-outline-primary" onclick="<?php echo"mecomment('$mecmtvideo')"; ?>" >Gửi</button>
 
             </div>
-        </div>
-
-
-
-        <div id="choose-dexuat">
-<?php
-$sql99 = "SELECT * FROM video as a , user_xem_video as b 
-where a.ID_VIDEO=b.ID_VIDEO and b.ID_USER='$me' and a.ID_VIDEO<>'$idvideo'
-ORDER BY HOT ASC";
-if($result99=mysqli_query($link,$sql99)){
-    if(mysqli_num_rows($result99)>0){
-        while ($rows99=mysqli_fetch_assoc($result99)){
-            $hinhanh_dexuat=$rows99['HINHANH_VIDEO'];
-            $idvideo_dexuat=$rows99['ID_VIDEO'];
-            $tenvideo_dexuat=$rows99['NAME_VIDEO'];
-          echo "<div class='dem'>
-            <hr>
-            <a id='imgvideo' href='sing.php?id=$idvideo_dexuat&&name=$tenvideo_dexuat&&img=$hinhanh_dexuat'><img  src='$hinhanh_dexuat'></a>
-            <a class='songname' href='sing.php?id=$idvideo_dexuat&&name=$tenvideo_dexuat&&img=$hinhanh_dexuat'>$tenvideo_dexuat</a>
-            <hr>
-            </div>";
-        }
-    }
-}else{
-
-}
-
-?>
-
-
 
         </div>
-         </div>
-  </div>
-</div>
+
+
+    </div>
+
 </body>
+
 </div>
+
 </html>

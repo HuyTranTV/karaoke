@@ -37,7 +37,7 @@ if(isset($_SESSION['id']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<title>Chat</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
     #box-mess{
