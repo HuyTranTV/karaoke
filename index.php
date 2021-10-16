@@ -1,6 +1,8 @@
 <?php
+ob_start();
 session_start();
 require 'cn.php';
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -263,28 +265,28 @@ require 'cn.php';
     <p id="ketqua">Result</p>
     <div class=row>
         <div class="col-md-12" id="list">
-<!--            --><?php
-//            echo "<i> Video đã xem</i>";
-//            if(isset($_SESSION['id'])){
-//               $iduser=$_SESSION['id'];
-//                $sql="SELECT * FROM user_xem_video as a ,video as b WHERE a.ID_VIDEO=b.ID_VIDEO and a.ID_USER='$iduser' ";
-//                $result=mysqli_query($link,$sql);
-//                if(mysqli_num_rows($result)>0){
-//                    while ($rows=mysqli_fetch_assoc($result)){
-//                        $img=$rows['HINHANH_VIDEO'];
-//                        $id=$rows['ID_VIDEO'];
-//                        $name=$rows['NAME_VIDEO'];
-//                        $str_img="<a id=\"imgvideo\" href=\"sing.php?id=$id&&name=$name&&img=$img\"><img  height=\"250\" src=\"$img\"></a>";
-//                        $str_name="<a id=\"titile\" href=\"sing.php?id=$id&&name=$name&&img==$img\">$name</a>";
-//                        echo "<div class=\"videos\">'.$str_img.$str_name.'</div>";
-//                    }
-//                }
-//
-//            }
-//            else{
-//                echo"<h5>Đăng nhập để chúng tôi hiểu bạn hơn</h5>";
-//            }
-//            ?>
+
+<!--//            echo "<i> Video đã xem</i>";-->
+<!--//            if(isset($_SESSION['id'])){-->
+<!--//               $iduser=$_SESSION['id'];-->
+<!--//                $sql="SELECT * FROM user_xem_video as a ,video as b WHERE a.ID_VIDEO=b.ID_VIDEO and a.ID_USER='$iduser' ";-->
+<!--//                $result=mysqli_query($link,$sql);-->
+<!--//                if(mysqli_num_rows($result)>0){-->
+<!--//                    while ($rows=mysqli_fetch_assoc($result)){-->
+<!--//                        $img=$rows['HINHANH_VIDEO'];-->
+<!--//                        $id=$rows['ID_VIDEO'];-->
+<!--//                        $name=$rows['NAME_VIDEO'];-->
+<!--//                        $str_img="<a id=\"imgvideo\" href=\"sing.php?id=$id&&name=$name&&img=$img\"><img  height=\"250\" src=\"$img\"></a>";-->
+<!--//                        $str_name="<a id=\"titile\" href=\"sing.php?id=$id&&name=$name&&img==$img\">$name</a>";-->
+<!--//                        echo "<div class=\"videos\">'.$str_img.$str_name.'</div>";-->
+<!--//                    }-->
+<!--//                }-->
+<!--//-->
+<!--//            }-->
+<!--//            else{-->
+<!--//                echo"<h5>Đăng nhập để chúng tôi hiểu bạn hơn</h5>";-->
+<!--//            }-->
+
 
         </div>
     </div>

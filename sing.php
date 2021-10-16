@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require 'cn.php';
 $me="0";
 if(isset($_COOKIE['id'])){
@@ -140,6 +141,7 @@ function get_rep_cmt($idcmt,$tenuser){
 
 }
 include 'index.php';
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <div lang="en">
