@@ -260,14 +260,17 @@ ob_end_flush();
     <!--<input type="search" id="search"/>-->
     <!--<button id="tim" onclick="tim()">Search</button>-->
     <div class="input-group">
-        <input type="search" id="search" class="form-control rounded" placeholder="Search" width="500" aria-label="Search"
+        <input type="search" id="search" class="form-control rounded" placeholder="Nhập tên bài hát" width="500" aria-label="Search"
                aria-describedby="search-addon" onkeyup="video_save()" />
-        <button type="button" id="tim" class="btn btn-outline-primary" onclick="tim()">Tìm</button>
+        <button type="button" id="tim" class="btn btn-outline-primary" onclick="tim()"><span class="material-icons">
+search
+</span>
+        </button>
     </div>
     <p id="ketqua"><span class="material-icons">
 hourglass_empty
 </span>
-         Kết quả:   </p>
+        <span>Kết quả:  </span>  </p>
     <div class=row>
         <div class="col-md-12" id="list">
 

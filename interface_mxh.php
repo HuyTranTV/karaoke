@@ -821,7 +821,9 @@ else{
                     "\n" +
                     "                <div class=\"user-set-cmt-box\">\n" +
                     "                    <input placeholder=\"      Comment....\" onkeyup=\"size_input('"+id_cmt_box+"');\" id="+id_cmt_box+" name="+id_cmt_box+" class=\"cmt\">\n" +
-                    "                    <button class=\"send\" onclick=\"return cmt('"+id+"','"+key_baiviet+"')\">>></button>\n" +
+                    "                    <button class=\"send\" onclick=\"return cmt('"+id+"','"+key_baiviet+"')\"><span class=\"material-icons\">\n" +
+                    "send\n" +
+                    "</span>\n</button>\n" +
                     "                </div>\n" +
                     "               \n" +
                     "                </hr>\n" +
@@ -1848,7 +1850,10 @@ else{
 
                     <a href="#"><?php echo "<img width='100' height='100' style='border-radius: 80px' src=".$img.">"?></a>
                     <textarea name="content-status" id="content-status" placeholder="Bạn đang nghĩ gì ..."></textarea>
-                    <button   id="submitform" <?php echo"value=".str_replace( ' ', '-', $name) ?>>Đăng</button>
+                    <button   id="submitform" <?php echo"value=".str_replace( ' ', '-', $name) ?>><span class="material-icons">
+send
+</span>
+                    </button>
                 </div>
                 <hr>
             <form method="POST" enctype="multipart/form-data">

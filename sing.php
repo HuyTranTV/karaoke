@@ -591,6 +591,7 @@ ob_end_flush();
         }
         #list-play #tenbaihat{
             width: 30%;
+            color: white;
 
         }
 
@@ -667,7 +668,7 @@ ob_end_flush();
             margin-left: 10%;
         }
         #comment-box{
-            width: 70%;
+            width: 80%;
             float: left;
         }
 
@@ -756,7 +757,7 @@ ob_end_flush();
         }
         #tim1{
             margin-left: 2px;
-            width: 30%;
+            width: 15%;
 
         }
         .rep-cmt{
@@ -805,25 +806,49 @@ ob_end_flush();
 <?php $id=$_GET['id']?>
 <body id="content-page">
     <div class="container-flex" >
+        <div id="control">
+            <a href="#" id="hienlist-control" onclick="hienlist_control();"><span class="material-icons">
+mic_none
+</span>
+            </a>
+
+            <ul id="list-play">
+                <li style="background: bisque"><a href="#" id="start"><span class="material-icons">
+hearing
+</span>
+                    </a></li>
+                <li style="background: cornflowerblue"><a href="#" id="stop"><span class="material-icons">
+hearing_disabled
+</span>
+                    </a></li>
+                <li style="background: lightcyan;color: red"><a href="#" id="record"><span style="color: red" class="material-icons">
+radio_button_checked
+</span>
+                    </a></li>
+                <li style="background: tomato"><a href="#" id="stoprecord"><span class="material-icons">
+stop
+</span>
+                    </a></li>
+                <li  id="boxspeed" style="display: none;color: white"><input type="number" id="speed"  max="2" value="1" min="0.25" step="0.25">X <span style="color: white" class="material-icons">
+speed
+</span>
+                </li>
+
+                <li style="background: black"><a style="color: aliceblue" href="#" id="playrecord"><span class="material-icons">
+play_circle_filled
+</span>
+                    </a></li>
+                <li style="background: lightgreen"><a href="#" id="saverecord"><span class="material-icons">
+save
+</span>
+                    </a></li>
+
+                <li id="tenbaihat"><h1><?php echo"$name"?></h1></li>
+            </ul>
+
+
+        </div>
       <div id="watch">
-          <div id="control">
-             <a href="#" id="hienlist-control" onclick="hienlist_control();"><img src="img/1687761.png" width="20" height="20"></a>
-
-             <ul id="list-play">
-                 <li style="background: bisque"><a href="#" id="start">Hát</a></li>
-                 <li style="background: cornflowerblue"><a href="#" id="stop">Dừng</a></li>
-                 <li style="background: burlywood"><a href="#" id="record">Reconrd</a></li>
-                 <li style="background: tomato"><a href="#" id="stoprecord">Stop record</a></li>
-                 <li id="boxspeed" style="display: none;"><input type="number" id="speed"  max="2" value="1" min="0.25" step="0.25">X Speed</li>
-
-                 <li style="background: black"><a style="color: aliceblue" href="#" id="playrecord">listen record</a></li>
-                 <li style="background: lightgreen"><a href="#" id="saverecord">save record</a></li>
-
-                 <li id="tenbaihat"><h1><?php echo"$name"?></h1></li>
-             </ul>
-
-
-         </div>
           <div id="player"></div>
           <main></main>
       </div>
@@ -887,7 +912,10 @@ ob_end_flush();
                 <div style="display: flex;flex-direction: row">
                     <input type="text" id="comment-box" class="form-control rounded" placeholder="Comment stay here" aria-label="Search"
                            aria-describedby="search-addon" />
-                    <button type="button" id="tim1" class="btn btn-outline-primary" onclick="<?php echo"mecomment('$mecmtvideo')"; ?>" >Gửi</button>
+                    <button type="button" id="tim1" class="btn btn-outline-primary" onclick="<?php echo"mecomment('$mecmtvideo')"; ?>" ><span style="color: blue" class="material-icons">
+send
+</span>
+                    </button>
 
                 </div>
                 <?php
