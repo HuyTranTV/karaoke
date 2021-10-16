@@ -614,18 +614,14 @@ ob_end_flush();
         #comment{
 
 
-            height: 500px;
-            overflow-y: auto;
-            text-align: left;
-            margin-right: 1%;
         }
-        #choose{
-            width: 100%;
+        /*#choose{*/
+        /*    width: 100%;*/
 
-            height: 40px;
-            display: flex;
-            flex-direction: row;
-        }
+        /*    height: 40px;*/
+        /*    display: flex;*/
+        /*    flex-direction: row;*/
+        /*}*/
         #cmt{
 
             width: 50%;
@@ -655,6 +651,10 @@ ob_end_flush();
         #choose-dexuat{
             display: flex;
             flex-direction: column;
+            height: 500px;
+            overflow-y: auto;
+            text-align: left;
+
         }
         .comment-user{
             width: 100%;
@@ -784,11 +784,7 @@ ob_end_flush();
 
           }
 
-        ::-webkit-scrollbar{
-            width: 10px;
-            background: silver;
 
-        }
         main{
             text-align: center;
             background-color: black;
@@ -798,7 +794,14 @@ ob_end_flush();
             flex-direction: column;
             width: 100%;
         }
+        #favo-song{
+            text-align: center; width: 100%; background-color: lightcoral; padding: 10px
+        }
+        ::-webkit-scrollbar{
+            width: 10px;
+            background: silver;
 
+        }
     </style>
 
 
@@ -855,22 +858,17 @@ ob_end_flush();
            <main></main>
         </div>
         <div id="cmt-dexuat" >
-            <div id="comment">
-                <!--            <div id="choose">-->
-                <!--                <a id="cmt" href="#" onclick="showcmt();"><img src="img/icon-comment.png" width=50" height="35" style="border-radius: 20px"></a>-->
-                <!--                <a id="dexuat" href="#" onclick="showdexuat();"><img src="img/icon-youtube.png" width=60" height="35" style="border-radius: 20px"></a>-->
-                <!--            </div>-->
-               <div style="text-align: center; width: 100%; background-color: lightcoral; padding: 10px">
-                   <b>
+            <div id="favo-song" >
+                <b>
                    <span class="material-icons">
                     try
                     </span>
 
-                       Bài hát yêu thích
-                   </b>
-               </div>
+                    Bài hát yêu thích
+                </b>
+            </div>
 
-                <div id="choose-dexuat">
+            <div id="choose-dexuat">
                     <?php
                     ob_start();
                     $sql99 = "SELECT * FROM video as a , user_xem_video as b 
@@ -896,17 +894,18 @@ ob_end_flush();
                     ob_end_flush();
                     ?>
 
-                </div>
             </div>
-            <div id="choose-cmt" >
-                <div style="text-align: center; width: 100%; background-color: lightskyblue; padding: 10px">
-                    <b>
+
+            <div style="text-align: center; width: 100%; background-color: lightskyblue; padding: 10px">
+                <b>
                           <span class="material-icons">
                             comment
                           </span>
-                        Comment
-                    </b>
-                </div>
+                    Comment
+                </b>
+            </div>
+
+            <div id="choose-cmt" >
 
                 <div style="display: flex;flex-direction: row">
                     <input type="text" id="comment-box" class="form-control rounded" placeholder="Comment stay here" aria-label="Search"
