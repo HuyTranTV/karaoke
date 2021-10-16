@@ -192,7 +192,8 @@ ob_end_flush();
             // var url="https://www.googleapis.com/youtube/v3/search?";
             var search = document.getElementById("search").value;
             var karaoke=search+' karaoke';
-            document.getElementById("ketqua").innerHTML=karaoke;
+            // document.getElementById("ketqua").innerHTML=karaoke;
+            document.getElementById('kq-dx').innerHTML="Kết quả: "+karaoke;
             var client = new HttpClient();
             var key=new Array();
             key[0]="AIzaSyBQbOO3y1eiEZY6l3eywfrloe5WkU5IRWU&q=";
@@ -235,7 +236,7 @@ ob_end_flush();
                 data:'content=' + content,
                 success: function(php_script_response){
                     document.getElementById('list').innerHTML=php_script_response;
-
+                    document.getElementById('kq-dx').innerHTML="Đề xuất";
                     // console.log(php_script_response);
 
 
@@ -271,7 +272,7 @@ search
     <p id="ketqua"><span class="material-icons">
 hourglass_empty
 </span>
-        <span>Kết quả:  </span>  </p>
+        <span id="kq-dx">Kết quả:  </span>  </p>
     <div class=row>
         <div class="col-md-12" id="list">
 

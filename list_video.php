@@ -8,6 +8,7 @@ if(isset($_POST['content'])){
     $sql="SELECT `ID_VIDEO`, `NAME_VIDEO`, `HINHANH_VIDEO`, `HOT` FROM `video` WHERE NAME_VIDEO LIKE '%$name_video%'";
     $result=mysqli_query($link,$sql);
     if(mysqli_num_rows($result)>0){
+
         while ($rows=mysqli_fetch_assoc($result)){
             $img=$rows['HINHANH_VIDEO'];
             $id=$rows['ID_VIDEO'];
