@@ -136,6 +136,7 @@ ob_end_flush();
         color: black;
         font-weight: bold;
         font-style: italic;
+        font-size: 12px;
 
         }
         #search{
