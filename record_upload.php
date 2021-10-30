@@ -21,6 +21,7 @@ if (isset($_FILES['file'])) {
 
 
         $sql = "INSERT INTO `record`( `ID_USER`, `LINK`, `Name`) VALUES ('$id','$path_record1','$value')";
+        $result=mysqli_query($link,$sql);
             if(move_uploaded_file($_FILES['file']['tmp_name'][$key], $path_record1)==true){
                 if($result=mysqli_query($link,$sql)){
                     echo "<script> alert('Upload Successfully')</script>";
@@ -36,6 +37,6 @@ if (isset($_FILES['file'])) {
 } else {
     echo "<script> console.log('not file')</script>";
 }
-header('location:my_record.php');
+//header('location:my_record.php');
 
 ?>

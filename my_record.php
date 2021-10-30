@@ -26,8 +26,10 @@ if(mysqli_num_rows($result_name)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
@@ -37,7 +39,30 @@ if(mysqli_num_rows($result_name)){
 <!--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>-->
 
 <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<script>
 
+
+    let mySound;
+
+    function preload() {
+        mySound = loadSound('huyhat.wav');
+    }
+    // function get_song(mys) {
+    //     mySound = loadSound(mys);
+    //     reverb = new p5.Reverb();
+    //     // soundFile.disconnect(); // so we'll only hear reverb...
+    //
+    //     // connect soundFile to reverb, process w/
+    //     // 3 second reverbTime, decayRate of 2%
+    //     reverb.process(mySound, 3, 2);
+    //     mySound.play();
+    // }
+
+
+
+
+
+</script>
     <style>
         #sidebar{
             background-color: black;
@@ -199,6 +224,9 @@ if(mysqli_num_rows($result_name)){
             display: flex;
             text-align: center;
             flex-direction: row;
+        }
+        .eff:hover{
+            font-size: 30px;
         }
 
 
@@ -405,6 +433,8 @@ if(mysqli_num_rows($result_name)){
         }
         window.autotune=autotune;
 
+
+
     </script>
 </head>
 
@@ -498,7 +528,7 @@ if(mysqli_num_rows($result_name)){
 <!--                        </li>-->
                         <label class="file">
                             <form action="record_upload.php" method="post" enctype='multipart/form-data'>
-                                <input type="file" name="file[]" id="file" aria-label="File browser example" multiple="multiple">
+                                <input type="file" name="file[]" id="file" aria-label="File browser example"  accept=".mp3, .wav " multiple="multiple">
                                 <input type="submit" value="send">
                             </form>
 
@@ -538,7 +568,7 @@ if(mysqli_num_rows($result_name)){
                     echo " <div class=\"record\" >
                 <p style=\"text-align: center\"> ".$date."</p>
                 <h5 style=\"text-align: center\">".$name."</h5>
-                <div class='info-record' style='display: flex; flex-direction: row'>
+                <div class='info-record' style='display: flex; flex-direction: row;margin-bottom: 10px'>
                         <audio controls style=\"width: 90%\">
                             <source src=".$link_record.">
                         </audio>
@@ -547,10 +577,17 @@ if(mysqli_num_rows($result_name)){
                               <span class=\"checkmark\"></span>
                         </label>
                 </div>
+                 <a class='eff' style=\"margin: 5px; border-radius: 10px ;background:url('img/bg_play.jpg');color: whitesmoke;text-decoration: none; width: 200px; height: 100px;padding: 7px\" href='play_sound.php?link=$link_record' >
+               <span class=\"material-icons\">
+            face_retouching_natural
+            </span>
+                Effect
+                </a>
                 ";
                     if(strpos($name,".wav")==true){
                         echo "
                     
+            
                 <button onclick=\"autotune('$id_record','$name')\" type=\"button\" class=\"btn btn-danger \" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                     Auto tune
                 </button>
@@ -596,27 +633,6 @@ if(mysqli_num_rows($result_name)){
             echo "</form>";
             }
             ?>
-<!--            <div class="record" >-->
-<!--                <p style="text-align: center"> 10/5/2021</p>-->
-<!--                <h5 style="text-align: center">name</h5>-->
-<!--                <audio controls style="width: 90%">-->
-<!--                    <source src="yeumotnguoikara.mp3">-->
-<!--                </audio>-->
-<!--                <button type="button" class="btn btn-danger " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                    Auto tune-->
-<!--                </button>-->
-<!--            </div>-->
-<!---->
-<!--            <div class="record" >-->
-<!--                <p style="text-align: center"> 10/5/2021</p>-->
-<!--                <h5 style="text-align: center">name</h5>-->
-<!--                <audio controls style="width: 90%">-->
-<!--                    <source src="yeumotnguoikara.mp3">-->
-<!--                </audio>-->
-<!--                <button type="button" class="btn btn-danger " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                    Auto tune-->
-<!--                </button>-->
-<!--            </div>-->
 
         </div>
 
@@ -642,5 +658,5 @@ if(mysqli_num_rows($result_name)){
 
 
 
-?>
+
 

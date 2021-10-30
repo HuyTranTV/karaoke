@@ -590,7 +590,7 @@ ob_end_flush();
         }
         #list-play #tenbaihat{
             width: 30%;
-            color: white;
+            color: silver;
 
         }
 
@@ -835,7 +835,7 @@ ob_end_flush();
                                                                 stop
                                                                 </span>
                     </a></li>
-                <li  id="boxspeed" style="display: none;color: white"><input type="number" id="speed"  max="2" value="1" min="0.25" step="0.25">X <span style="color: white" class="material-icons">
+                <li  id="boxspeed" style="display: none;color: orange"><input type="number" id="speed"  max="2" value="1" min="0.25" step="0.25">X <span style="color: orange" class="material-icons">
                                                                                                                         speed
                                                                                                                         </span>
                 </li>
