@@ -34,35 +34,7 @@ if(mysqli_num_rows($result_name)){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="my_record.css">
-    <!-- Font Awesome JS -->
-<!--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>-->
-<!--    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>-->
 
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<script>
-
-
-    let mySound;
-
-    function preload() {
-        mySound = loadSound('huyhat.wav');
-    }
-    // function get_song(mys) {
-    //     mySound = loadSound(mys);
-    //     reverb = new p5.Reverb();
-    //     // soundFile.disconnect(); // so we'll only hear reverb...
-    //
-    //     // connect soundFile to reverb, process w/
-    //     // 3 second reverbTime, decayRate of 2%
-    //     reverb.process(mySound, 3, 2);
-    //     mySound.play();
-    // }
-
-
-
-
-
-</script>
     <style>
         #sidebar{
             background-color: black;
@@ -428,13 +400,8 @@ if(mysqli_num_rows($result_name)){
 
                 }
             });
-
-
         }
         window.autotune=autotune;
-
-
-
     </script>
 </head>
 
@@ -449,26 +416,45 @@ if(mysqli_num_rows($result_name)){
         </div>
 
         <ul class="list-unstyled components">
-            <p>Tất cả ghi âm</p>
+            <p><span class="material-icons">
+library_music
+</span>
+                Tất cả ghi âm</p>
 
             <li>
-                <a href="my_record.php" >Đã tải lên</a>
+                <a href="my_record.php" ><span class="material-icons">
+file_upload
+</span>
+                    Đã tải lên</a>
             </li>
             <li>
-                <a href="#" onclick="get_record_mxh();">Trong Dòng Thời Gian</a>
+                <a href="#" onclick="get_record_mxh();"><span class="material-icons">
+schedule
+</span>
+                    Trong Dòng Thời Gian</a>
             </li>
             <li>
-                <a href="#" onclick="get_record_chat();">Trong đoạn tin nhắn </a>
+                <a href="#" onclick="get_record_chat();"><span class="material-icons">
+question_answer
+</span>
+                    Trong đoạn tin nhắn </a>
             </li>
+           
 
         </ul>
 
         <ul class="list-unstyled CTAs">
             <li>
-                <a href="index.php" class="download">Trang chủ</a>
+                <a href="index.php" class="download"><span class="material-icons">
+home
+</span>
+                </a>
             </li>
             <li>
-                <a href="interface_mxh.php?iduser=<?php echo $_SESSION['id'] ?>" class="article">Home</a>
+                <a href="interface_mxh.php?iduser=<?php echo $_SESSION['id'] ?>" class="article"><span class="material-icons">
+account_circle
+</span>
+                </a>
             </li>
         </ul>
     </nav>
@@ -538,7 +524,7 @@ if(mysqli_num_rows($result_name)){
                 </div>
             </div>
         </nav>
-        <div id="hien-thi-san-pham">
+
 <!--            <div class="record" >-->
 <!--                <p style="text-align: center"> 10/5/2021</p>-->
 <!--                <h5 style="text-align: center">name</h5>-->
@@ -550,7 +536,8 @@ if(mysqli_num_rows($result_name)){
 <!--                </button>-->
 <!--            </div>-->
             <?php
-
+            if(isset($_GET['link'])==false){
+            echo " <div id=\"hien-thi-san-pham\">";
             $sql="SELECT `ID_RECORD`, `ID_USER`, `LINK`, `Name`, `NGAY_DANG` FROM `record` WHERE ID_USER='$id' ORDER BY NGAY_DANG";
             $result=mysqli_query($link,$sql);
             echo "<form action='delete_my_record.php' method='post'>";
@@ -577,7 +564,7 @@ if(mysqli_num_rows($result_name)){
                               <span class=\"checkmark\"></span>
                         </label>
                 </div>
-                 <a class='eff' style=\"margin: 5px; border-radius: 10px ;background:url('img/bg_play.jpg');color: whitesmoke;text-decoration: none; width: 200px; height: 100px;padding: 7px\" href='play_sound.php?link=$link_record' >
+                 <a class='eff' style=\"margin: 5px; border-radius: 10px ;background:url('img/bg_play.jpg');color: whitesmoke;text-decoration: none; width: 200px; height: 100px;padding: 7px\" href='play_sound.php?link=$name' >
                <span class=\"material-icons\">
             face_retouching_natural
             </span>
@@ -632,7 +619,14 @@ if(mysqli_num_rows($result_name)){
             }
             echo "</form>";
             }
-            ?>
+
+            else{
+                echo " <div id=\"hien-thi-san-pham\">";
+              include "play_sound.php";
+              echo"</div>";
+            }
+          }
+         ?>
 
         </div>
 
