@@ -39,6 +39,13 @@ if(isset($_SESSION['id']))
 <head>
 <title>Chat</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
 <style>
     #box-mess{
         width: 100%;
@@ -46,12 +53,20 @@ if(isset($_SESSION['id']))
         flex-direction: row;
     }
     #opt-mess-leff{
-        width:10%;
+        width:19%;
         display: flex;
         flex-direction: column;
 
-        background-color: lightskyblue;
+
     }
+    .opt:hover{
+        font-size: 18px;
+        text-decoration: none;
+        color: black;
+    }
+        #menu{
+
+        }
         #list-opt-mess-left{
 
             list-style: none;
@@ -87,7 +102,7 @@ if(isset($_SESSION['id']))
             min-height: 40px;
         }
     #opt-mess-right{
-        width: 90%;
+        width: 80%;
         display: flex;
         flex-direction: column;
     }
@@ -136,7 +151,7 @@ if(isset($_SESSION['id']))
                 border-right: 1px solid #b3d4fc;
                 padding-right: 6px;
                 padding-top: 20px;
-                width: 25%;
+                width: 30%;
             }
                 #search{
                     width: 100%;
@@ -197,7 +212,7 @@ if(isset($_SESSION['id']))
                 display: flex;
                 flex-direction: column;
 
-                width: 75%;
+                width: 70%;
             }
                 #name-user{
                 border-right: 1px solid lightskyblue;
@@ -842,32 +857,78 @@ if(isset($_SESSION['id']))
     window.show_opt_box_cmt=show_opt_box_cmt;
     window.send_my_mess=send_my_mess;
 </script>
-
+    <link rel="stylesheet" href="my_record.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body>
 
 
 <div id="box-mess">
     <div id="opt-mess-leff">
-        <ul id="list-opt-mess-left">
-            <li ><a href="#" id="avarta"><img src="<?php echo"$img"; ?>" width="80" height="80"></a></li>
-            <li id="kinhlup"><a href="#" ><img src="img/icon-kinh-lup.png" width="40" height="40"></a></li>
-<!--            <li><a href="#" ><img src="img/icon-list.jpg" width="40" height="40"></a>3</li>-->
-        </ul>
+<!--        <ul id="list-opt-mess-left">-->
+<!--            <li ><a href="#" id="avarta"><img src="--><?php //echo"$img"; ?><!--" width="80" height="80"></a></li>-->
+<!--            <li id="kinhlup"><a href="#" ><img src="img/icon-kinh-lup.png" width="40" height="40"></a></li>-->
+<!--        </ul>-->
 
+        <nav id="sidebar">
+            <div id="my-infoxx" style="border-bottom: 1px solid silver">
+                <!--            <li><a href="#" class="opt">--><?php //echo "<img src=".$img.">".$name ?><!--</a></li>-->
+                <div class="sidebar-header" style="color: black;">
+                    <a href="interface_mxh.php?iduser=<?php echo $_SESSION['id'] ?>"><img src="<?php echo"$img" ?>" style="width: 100px; height: 100px; border-radius: 50px; text-align: center"></a>
+                    <h3><?php echo "$name" ?> </h3>
+                </div>
+                <b style="text-align: center;color: black;">ID: <?php echo "$id"?></b>
+                <hr>
+                <p  style="font-weight: bold; color: black; text-align: center"><span class="material-icons">
+menu_book
+</span>Menu</p>
+            </div>
+
+
+
+            <ul class="list-unstyled components" id="menu">
+
+
+                <li class="opt"><a href="list_friend.php?myid=<?php echo "$id" ?> " class="opt"  >
+                        <span class="material-icons">
+question_answer
+</span>Trò chuyện</a></li>
+
+                <li class="opt"><a href="index.php" class="opt" ><span class="material-icons">
+mic_external_on
+</span>Trang karaoke</a></li>
+
+                <li class="opt"><a href="my_record.php" class="opt">   <p><span class="material-icons">
+library_music
+</span>Quản lý ghi âm</a></li>
+
+
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="index.php" class="download"><span class="material-icons">
+home
+</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="interface_mxh.php?iduser=<?php echo $_SESSION['id']?>" class="article"><span class="material-icons">
+account_circle
+</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <div id="opt-mess-right">
-        <!--        ------------top-opt-mess-right-->
+            <div id="opt-mess-right">
+                <!--        ------------top-opt-mess-right-->
         <div id="top-opt-mess-right">
             <div id="top-left-opt-mess-right">
               <p style="font-size: 15px;margin-left: 15px; font-weight: bold"><?php echo"$name"; ?></p>
             </div>
             <div id="top-right-opt-mess-right">
-                <ul>
-                    <li> <a href="interface_mxh.php?iduser=<?php echo "$id";?>"><img src="img/icon-home.png" style="height: 25px;image-rendering: pixelated;object-fit: contain"></a></li>
-                    <li> <a href="index.php"><img src="img/logoyoutube.gif" style="height: 25px;image-rendering: pixelated;object-fit: contain"></a></li>
 
-                </ul>
             </div>
         </div>
 <!--        ------------bottom-opt-mess-right-->

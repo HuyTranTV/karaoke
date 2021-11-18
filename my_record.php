@@ -415,8 +415,8 @@ if(mysqli_num_rows($result_name)){
             <h3><?php echo "$name" ?> </h3>
         </div>
 
-        <ul class="list-unstyled components">
-            <p><span class="material-icons">
+        <ul class="list-unstyled components"  >
+            <p style="color: black; font-weight: bold; text-align: center"><span class="material-icons">
 library_music
 </span>
                 Tất cả ghi âm</p>

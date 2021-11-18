@@ -93,6 +93,9 @@ else{
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="my_record.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
     <script type="module">
 
         // Import the functions you need from the SDKs you need
@@ -1302,7 +1305,9 @@ else{
 
                     }
                 .opt:hover{
-                    font-size: 20px;
+                    font-size: 18px;
+                    text-decoration: none;
+                    color: black;
                 }
                     #my-option ul li .opt img{
                         border-radius: 10px;
@@ -1780,26 +1785,74 @@ else{
         .dropdown:hover .dropbtn {
             background-color: #3e8e41;
         }
+        #my-infoxx{
+            border-bottom: 1px solid silver;
+        }
     </style>
 
 </head>
 <body>
 <div id="container">
     <div id="left">
-        <div id="my-info">
-            <li><a href="#" class="opt"><?php echo "<img src=".$img.">".$name ?></a></li>
-            <b style="text-align: center">ID: <?php echo "$id"?></b>
-        </div>
-        <hr>
-        <div id="my-option">
-            <ul >
-                <li><a href="list_friend.php?myid=<?php echo "$id" ?> " class="opt"  >
-                        <img src="img/icon-mess.png" style="height: 40px; width: 40px">Messeger</a></li>
-                <li><a href="interface_mxh.php?iduser=<?php echo $_SESSION['id']?>" class="opt"><img src="img/icon-home.png" style="height: 40px; width: 40px">My-Page</a></li>
-                <li><a href="index.php" class="opt"><img src="img/icon-youtube.png" style="height: 40px; width: 40px">My-Karaoke</a></li>
-                <li><a href="my_record.php" class="opt"><img src="img/icon-list.jpg" style="height: 40px; width: 40px">My-Voice</a></li>
-            </ul>
-        </div>
+
+
+<!--        <div id="my-option">-->
+<!--            <ul >-->
+<!--                <li><a href="list_friend.php?myid=--><?php //echo "$id" ?><!-- " class="opt"  >-->
+<!--                        <img src="img/icon-mess.png" style="height: 40px; width: 40px">Messeger</a></li>-->
+<!--                <li><a href="interface_mxh.php?iduser=--><?php //echo $_SESSION['id']?><!--" class="opt"><img src="img/icon-home.png" style="height: 40px; width: 40px">My-Page</a></li>-->
+<!--                <li><a href="index.php" class="opt"><img src="img/icon-youtube.png" style="height: 40px; width: 40px">My-Karaoke</a></li>-->
+<!--                <li><a href="my_record.php" class="opt"><img src="img/icon-list.jpg" style="height: 40px; width: 40px">My-Voice</a></li>-->
+<!--            </ul>-->
+            <nav id="sidebar">
+                <div id="my-infoxx">
+                    <!--            <li><a href="#" class="opt">--><?php //echo "<img src=".$img.">".$name ?><!--</a></li>-->
+                    <div class="sidebar-header" style="color: black">
+                        <a href="interface_mxh.php?iduser=<?php echo $_SESSION['id'] ?>"><img src="<?php echo"$img" ?>" style="width: 100px; height: 100px; border-radius: 50px; text-align: center"></a>
+                        <h3><?php echo "$name" ?> </h3>
+                        <b style="text-align: center">ID: <?php echo "$id"?></b>
+                    </div>
+                    <hr>
+                    <p  style="font-weight: bold; color: black; text-align: center"><span class="material-icons">
+menu_book
+</span>Menu</p>
+                </div>
+                <ul class="list-unstyled components" id="menu">
+
+
+                    <li class="opt" ><a href="list_friend.php?myid=<?php echo "$id" ?> " class="opt">
+                        <span class="material-icons">
+question_answer
+</span>Trò chuyện</a></li>
+
+                    <li class="opt" ><a href="index.php" class="opt" ><span class="material-icons">
+mic_external_on
+</span>Trang karaoke</a></li>
+
+                    <li class="opt" ><a href="my_record.php" class="opt">   <p><span class="material-icons">
+library_music
+</span>Quản lý ghi âm</a></li>
+
+
+                </ul>
+
+                <ul class="list-unstyled CTAs">
+                    <li>
+                        <a href="index.php" class="download"><span class="material-icons">
+home
+</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="interface_mxh.php?iduser=<?php echo $_SESSION['id']?>" class="article"><span class="material-icons">
+account_circle
+</span>
+                        </a>
+                    </li>
+                </ul>
+                </ul>
+            </nav>
+<!--        </div>-->
 
 
     </div>
